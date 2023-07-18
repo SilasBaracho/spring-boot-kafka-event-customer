@@ -1,0 +1,30 @@
+server:
+  port: 8084
+
+spring:
+  application:
+    name: emailmaneger
+  datasource:
+    url: jdbc:h2:mem:emailmaneger_db
+    username: admin
+    password:
+    driverClassName: org.h2.Driver
+  jpa:
+    spring.jpa.database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: update
+  h2:
+    console:
+      path: "/h2"
+      enable: true
+  mail:
+    host: "smtp.gmail.com"
+    port: 587
+    username: silasbaracho@gmail.com
+    password: yasvindnzkuqwjhm
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true

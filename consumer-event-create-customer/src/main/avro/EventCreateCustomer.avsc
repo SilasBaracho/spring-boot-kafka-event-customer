@@ -1,0 +1,28 @@
+{
+   "type": "record",
+   "namespace": "kafka.event.create.customer",
+   "name": "EventCreateCustomer",
+   "version": "1",
+   "fields": [
+      {
+         "name": "idtCustomer",
+         "type": "string"
+      },
+      {
+         "name": "email",
+         "type": "string"
+      },
+      {
+         "name": "otp",
+         "type": "string"
+      },
+      {
+         "name": "flgActive",
+         "type": "boolean"
+      },
+      {
+         "name": "flgConfirmed",
+         "type": "boolean"
+      }
+   ]
+}

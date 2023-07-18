@@ -1,0 +1,37 @@
+server:
+  port: 8083
+
+spring:
+  kafka:
+    bootstrap-servers: "localhost:9092"
+    topics:
+      topic-name: event.create.customer
+    consumer:
+      group-id: consumer-event-create-customer
+      enable-auto-commit: false
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: io.confluent.kafka.serializers.KafkaAvroDeserializer
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: io.confluent.kafka.serializers.KafkaAvroSerializer
+    properties:
+      schema:
+        registry:
+          url: http://0.0.0.0:8081
+      specific.avro.reader: true
+      value:
+        deserializer:
+          specific:
+            avro:
+              reader=true:
+
+feign:
+  client:
+    config:
+      default:
+        connectTimeout: 5000
+        readTimeout: 5000
+        loggerLevel: full
+  integration:
+    email-manager-api: http://localhost:8084
